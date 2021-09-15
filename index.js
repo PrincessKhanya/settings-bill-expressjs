@@ -1,9 +1,34 @@
 const express=require("express");
+const exphbs = require("express-handlebars");
+
 
 const app = express();
 
+app.engine("handlebars",exphbs({defaultLayout:"main"}));
+app.set("view engine","handlebars");
+
 app.get("/", function (req, res){
-    res.send("Setting-Bill App1")
+    res.render("index")
+
+})
+
+app.post("/settings", function (req, res){
+
+
+})
+
+app.post("/action", function (req, res){
+
+
+})
+
+app.get("/actions", function (req, res){
+
+
+})
+
+app.get("/actions/:type", function (req, res){
+
 
 })
 
