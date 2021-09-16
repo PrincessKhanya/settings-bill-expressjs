@@ -15,17 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-const handlebarSetup = exphbs({
-    partialsDir: "./views/partials",
-    viewPath:  './views',
-    layoutsDir : './views/layouts'
-});
-
 app.get("/", function (req, res){
     res.render("index", {
-        settings: settingsBill.getSettings()
+        settings: settingsBill.getSettings(),
+        totals: settingsBill.totals()
     });
-
 });
 
 app.post("/settings", function (req, res){
@@ -39,12 +33,15 @@ app.post("/settings", function (req, res){
 
     res.redirect("/");
 
-
-
-
 })
 
 app.post("/action", function (req, res){
+
+    settingsBill.recordAction(req.body.actionType)
+
+
+
+    res.redirect("/");
 
 
 })
