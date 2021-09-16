@@ -8,8 +8,8 @@ module.exports = function SettingsBill() {
     let actionList = [];
 
     function setSettings (settings) {
-        smsCost = Number(settings.smsCost);
         callCost = Number(settings.callCost);
+        smsCost = Number(settings.smsCost);
         warningLevel = settings.warningLevel;
         criticalLevel = settings.criticalLevel;
     }
