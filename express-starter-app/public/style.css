@@ -1,0 +1,26 @@
+body {
+	background-color: rgb(223, 215, 215);
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+	margin: auto;
+	background-color: whitesmoke;
+	width: 80%;
+	padding: 1em;
+}
+
+
+.counter {
+	background-color: lightgray;
+	font-size: 2em;
+	width: 3em;
+	text-align: center;
+	padding: 0.5em;
+	margin-bottom: 0.25em;
+}
+
+.btn {
+    
+}
+
