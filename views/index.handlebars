@@ -46,6 +46,9 @@
                       <td>
                         <a href="/actions">Total</a>
                       </td>
+                      <td>
+                        R<span class="totalSettings">{{totals.grandTotal}}</span> 
+                      </td>
                       {{#if hasReachedCriticalLevel}}
                       <td> R<span class="totalSettings danger">{{totals.grandTotal}}</span> </td>
                       {{else hasReachedWarningLevel}}
@@ -53,10 +56,11 @@
                       {{/if}}
                     </tr>
                   </table>
-
             </div>
             <div class="six columns">
               <h5>Settings</h5>
+
+
               <form action="/settings" method="POST">
                 <label for="exampleEmailInput">Call cost</label>
                 <input class="u-full-width callCostSetting" type="number" step=".01" name="callCost" placeholder="eg. 2.55" value="{{settings.callCost}}">
@@ -65,11 +69,11 @@
                 <label for="">Warning level</label>
                 <input class="u-full-width warningLevelSetting " type="number" step=".01" name="warningLevel" placeholder="eg. 30.00" class="warningLevel" value="{{settings.warningLevel}}">
                 <label for="">Critical level</label>
-                <input class="u-full-width criticalLevelSetting" type="number" step=".01" name="criticalLevel" placeholder="eg. 65.00" value="{{settings.warningLevel}}">
+                <input class="u-full-width criticalLevelSetting" type="number" step=".01" name="criticalLevel" placeholder="eg. 65.00" value="{{settings.criticalLevel}}">
                 <button class="button-primary updateSettings" type="submit"  name="button">Update settings</button>
-              </form>
-    
+              </form>  
             </div>
           </div>
         </div>
-      </div>
+      </div   
+      

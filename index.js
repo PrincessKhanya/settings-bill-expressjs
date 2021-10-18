@@ -28,6 +28,7 @@ app.get("/", function (req, res){
     });
 });
 
+
 app.post("/settings", function (req, res){
     settingsBill.setSettings({
         callCost: req.body.callCost,
@@ -37,24 +38,51 @@ app.post("/settings", function (req, res){
 
     });
     res.redirect("/");
-})
+});
+
 
 app.post("/action", function (req, res){
     settingsBill.recordAction(req.body.actionType)
     res.redirect("/");
-})
+});
 
 app.get("/actions", function (req, res){
     res.render("actions",{actions: settingsBill.actions()});
-})
+});
+
 
 app.get("/actions/:actionType", function (req, res){
     const actionType = req.params.actionType;
     res.render("actions",{actions: settingsBill.actionsFor(actionType)});
-})
+});
+
 
 const PORT = process.env.PORT|| 3011
 
 app.listen(PORT,function(){
     console.log("App started at port:", PORT)
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@ module.exports = function SettingsBill() {
         smsCost = Number(settings.smsCost);
         warningLevel = settings.warningLevel;
         criticalLevel = settings.criticalLevel;
-    }
+    };
 
     function getSettings
     () {
@@ -22,7 +22,7 @@ module.exports = function SettingsBill() {
             warningLevel,
             criticalLevel
         }
-    }
+    };
 
     function recordAction(action) {
 
@@ -39,11 +39,12 @@ module.exports = function SettingsBill() {
             cost,
             timestamp: new Date()
         });
-    }
+    };
+
 
     function actions(){
         return actionList;
-    }
+    };
 
     function actionsFor(type){
         const filteredActions = [];
@@ -61,7 +62,7 @@ module.exports = function SettingsBill() {
         return filteredActions;
 
         // return actionList.filter((action) => action.type === type);
-    }
+    };
 
     function getTotal(type) {
         let total = 0;
@@ -82,11 +83,11 @@ module.exports = function SettingsBill() {
         //     let val = action.type === type ? action.cost : 0;
         //     return total + val;
         // }, 0);
-    }
+    };
 
     function grandTotal() {
         return getTotal('sms') + getTotal('call');
-    }
+    };
 
     function totals() {
         let smsTotal = getTotal('sms')
@@ -96,7 +97,7 @@ module.exports = function SettingsBill() {
             callTotal,
             grandTotal : grandTotal()
         }
-    }
+    };
 
     function hasReachedWarningLevel(){
         const total = grandTotal();
@@ -104,12 +105,12 @@ module.exports = function SettingsBill() {
             && total < criticalLevel;
 
         return reachedWarningLevel;
-    }
+    };
 
     function hasReachedCriticalLevel(){
         const total = grandTotal();
         return total >= criticalLevel;
-    }
+    };
 
     return {
         setSettings,
@@ -121,4 +122,4 @@ module.exports = function SettingsBill() {
         hasReachedWarningLevel,
         hasReachedCriticalLevel
     }
-} 
+};
