@@ -36,33 +36,21 @@ app.post("/settings", function (req, res){
         criticalLevel: req.body.criticalLevel
 
     });
-
     res.redirect("/");
-
 })
 
 app.post("/action", function (req, res){
-
     settingsBill.recordAction(req.body.actionType)
-
-
-
     res.redirect("/");
-
-
 })
 
 app.get("/actions", function (req, res){
     res.render("actions",{actions: settingsBill.actions()});
-
-
 })
 
 app.get("/actions/:actionType", function (req, res){
     const actionType = req.params.actionType;
     res.render("actions",{actions: settingsBill.actionsFor(actionType)});
-
-
 })
 
 const PORT = process.env.PORT|| 3011

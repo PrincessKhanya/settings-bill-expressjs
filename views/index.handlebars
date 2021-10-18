@@ -46,7 +46,11 @@
                       <td>
                         <a href="/actions">Total</a>
                       </td>
-                      <td> R<span class="totalSettings">{{totals.grandTotal}}</span> </td>
+                      {{#if hasReachedCriticalLevel}}
+                      <td> R<span class="totalSettings danger">{{totals.grandTotal}}</span> </td>
+                      {{else hasReachedWarningLevel}}
+                      <td> R<span class="totalSettings warning">{{totals.grandTotal}}</span> </td>
+                      {{/if}}
                     </tr>
                   </table>
 

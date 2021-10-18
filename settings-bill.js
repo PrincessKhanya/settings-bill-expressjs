@@ -10,8 +10,8 @@ module.exports = function SettingsBill() {
     function setSettings (settings) {
         callCost = Number(settings.callCost);
         smsCost = Number(settings.smsCost);
-        warningLevel = Number(settings.warningLevel);
-        criticalLevel = Number(settings.criticalLevel);
+        warningLevel = settings.warningLevel;
+        criticalLevel = settings.criticalLevel;
     }
 
     function getSettings
